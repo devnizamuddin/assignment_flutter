@@ -88,12 +88,10 @@ class ApiCommunication {
       }
 
       if (response.statusCode == 200) {
-        Map<String, dynamic> responseData = response.data;
         showSuccessMessage
-            ? showSuccessSnackkbar(
-                message: successMessage ?? responseData['message'])
+            ? showSuccessSnackkbar(message: successMessage ?? '')
             : ();
-        debugPrint('$responseData');
+        debugPrint('${response.data}');
         return response;
       } else {
         showErrorSnackkbar(message: '${response.statusCode}');
