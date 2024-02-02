@@ -13,7 +13,7 @@ class UserModel {
   int? totalTradesCount;
   int? type;
   int? verificationLevel;
-  double? currency;
+  int? currency;
   double? currentTradesVolume;
   double? equity;
   double? freeMargin;
@@ -55,7 +55,7 @@ class UserModel {
     int? totalTradesCount,
     int? type,
     int? verificationLevel,
-    double? currency,
+    int? currency,
     double? currentTradesVolume,
     double? equity,
     double? freeMargin,
@@ -130,7 +130,7 @@ class UserModel {
       verificationLevel: map['verificationLevel'] != null
           ? map['verificationLevel'] as int
           : null,
-      currency: map['currency'] != null ? map['currency'] as double : null,
+      currency: map['currency'] != null ? map['currency'] as int : null,
       currentTradesVolume: map['currentTradesVolume'] != null
           ? map['currentTradesVolume'] as double
           : null,
