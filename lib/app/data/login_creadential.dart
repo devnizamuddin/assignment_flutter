@@ -10,13 +10,18 @@ class LoginCredential {
   }
 
   void saveLoginResponse(LoginResponse model) {
-    _getStorage.write(AppStorage.LOGIN_RESPONSE_KEY, model.toJson());
+    _getStorage.write(AppStorage.LOGIN_RESPONSE_KEY, model.toMap());
   }
 
-  LoginResponse getLoginResponse() {
-    LoginResponse model =
-        LoginResponse.fromJson(_getStorage.read(AppStorage.LOGIN_RESPONSE_KEY));
-    return model;
+  LoginResponse? getLoginResponse() {
+    Map<String, dynamic>? responseMap =
+        _getStorage.read(AppStorage.LOGIN_RESPONSE_KEY);
+    if (responseMap != null) {
+      LoginResponse? model = LoginResponse.fromMap(responseMap);
+      return model;
+    }
+
+    return null;
   }
 
   void saveUserId(int userId) {

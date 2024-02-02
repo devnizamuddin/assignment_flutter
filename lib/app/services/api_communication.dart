@@ -27,7 +27,7 @@ class ApiCommunication {
 
     connectivity = Connectivity();
     _loginCredential = LoginCredential();
-    token = _loginCredential.getLoginResponse().token;
+    token = _loginCredential.getLoginResponse()?.token;
     header = {
       'Accept': '*/*',
       'Authorization': 'Bearer $token',
